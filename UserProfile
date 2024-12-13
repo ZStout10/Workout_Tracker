@@ -1,5 +1,7 @@
 /* Emma Richardson
- * 
+ * Exercise Tracker - Final Project
+ * 12/11/2024
+ * This class is for the user to enter their information, including the exercises they wish to add.
  */
 package Project;
 
