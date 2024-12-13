@@ -1,5 +1,13 @@
 package Project;
 
+/*
+* Project Name: Workout Tracker
+* Author: Tiana Maea
+* Date: 12/11/24
+* Description: The Exercise allows users to select and customize their workout experience from predefined categories with attributes like the 
+* number of sets, reps, a duration of their workout. 
+*/
+
 import java.util.Scanner;
 
 public class Exercise {
