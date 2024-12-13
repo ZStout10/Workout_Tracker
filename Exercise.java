@@ -93,23 +93,25 @@ public class Exercise {
         }
     } // end of displayPredefinedExercises
 
-    public static Exercise selectExercise() {
+        public static Exercise selectExercise() {
         Scanner scan = new Scanner(System.in);
 
         while (true) {
+        	int choice;
             try {
                 System.out.print("Enter the number of the exercise you'd like to select: ");
-                int choice = scan.nextInt();
+                choice = scan.nextInt();
 
-                if (choice > 0 && choice <= predefinedExercises.length) {
-                    String[] selected = predefinedExercises[choice - 1];
-                    scan.close(); // Close scanner
-                    return new Exercise(selected[0], selected[1], 0, 0, 0, "Beginner");
-                } else {
-                    System.out.println("Invalid selection. Please choose a number between 1 and " + predefinedExercises.length);
+                if (choice > 0 && choice < predefinedExercises.length) {
+                    String selected = predefinedExercises[choice-1][0];
+                    String type = predefinedExercises[choice-1][1];
+                    //scan.close(); // Close scanner
+                    System.out.println("You are doing " + selected);
+                    return new Exercise(selected, type, 0, 0, 0, "Beginner");
                 }
-            } catch (Exception e) {
-                System.out.println("Invalid input. Please enter a valid number.");
+            }
+             catch (Exception e) {
+            	System.out.println("Invalid selection. Please choose a number between 1 and " + predefinedExercises.length);
                 scan.nextLine(); // Clear invalid input
             }
         }
