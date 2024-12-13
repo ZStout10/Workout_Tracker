@@ -8,12 +8,12 @@ import java.util.ArrayList;
 
 public class tracker {
 	// Variables and array lists
-	int logIn;
+	static int logIn;
 	static Scanner scan = new Scanner(System.in);
-	ArrayList<UserProfile> profileList = new ArrayList<>();
+	static ArrayList<UserProfile> profileList = new ArrayList<>();
 	
 	// Adding a new profile to the profileList
-	public void addNewProfile(ArrayList<UserProfile> profileList2) {
+	public static void addNewProfile(ArrayList<UserProfile> profileList2) {
 		System.out.println("Please enter your name: ");
 		String newName = scan.next();
 		System.out.println("Please enter your age: ");
@@ -27,7 +27,7 @@ public class tracker {
 	}
 	
 	// Adding a log in class to give the user a more personal experience
-	public int logIn(ArrayList<UserProfile> list) {
+	public static int logIn(ArrayList<UserProfile> list) {
 		int count = 1;
 		System.out.println("Please select your profile: ");
 		for(UserProfile UserProfile: profileList ) {
@@ -37,7 +37,7 @@ public class tracker {
 		return logIn - 1;
 	}
 	
-	public void main(String[] args) {
+	public static void main(String[] args) {
 		// Adding variables and profiles
 		boolean active = true;
 		int choice;
