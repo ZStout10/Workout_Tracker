@@ -1,5 +1,6 @@
 // Zachery Stout
 // INFO-C 211
+//This program connects the other two classes together that allows users to log in and track their exercises and calories burned
 
 package Project;
 
