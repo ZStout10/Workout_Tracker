@@ -93,23 +93,54 @@ public class Exercise {
         }
     } // end of displayPredefinedExercises
 
-        public static Exercise selectExercise() {
+       public static Exercise selectExercise() {
         Scanner scan = new Scanner(System.in);
 
         while (true) {
         	int choice;
+        	int caloriesBurned = 0;
             try {
                 System.out.print("Enter the number of the exercise you'd like to select: ");
                 choice = scan.nextInt();
-
+                
+                // Asking the user questions about their workout
                 if (choice > 0 && choice < predefinedExercises.length) {
                     String selected = predefinedExercises[choice-1][0];
                     String type = predefinedExercises[choice-1][1];
-                    //scan.close(); // Close scanner
-                    System.out.println("You are doing " + selected);
-                    return new Exercise(selected, type, 0, 0, 0, "Beginner");
+                    
+                    
+                    System.out.println("How many sets of " + selected + " are you doing?");
+                    int sets = scan.nextInt();
+                    while(sets < 0) {
+                    	System.out.println("Please enter a positive number:");
+                    	sets = scan.nextInt();
+                    }
+                    System.out.println("How many reps are you doing for each set?");
+                    int reps = scan.nextInt();
+                    while(reps < 0) {
+                    	System.out.println("Please enter a positive number:");
+                    	reps = scan.nextInt();
+                    }
+                    System.out.println("How long are you exercising for(hours)?");
+                    int duration = scan.nextInt();
+                    while(duration < 0) {
+                    	System.out.println("Please enter a positive number:");
+                    	duration = scan.nextInt();
+                    }
+                    
+                    if(type == "Strength" || type == "Cardio") {
+                    	caloriesBurned = 250;
+                    }
+                    else if(type == "Flexibility") {
+                    	caloriesBurned = 150;
+                    }
+                    
+                    System.out.println("You are doing " + selected + " which helps build " + type + "!");
+                    caloriesBurned = caloriesBurned * duration;
+                    System.out.println("You have burned " + caloriesBurned + " calories!\n\n");
+                    return new Exercise(selected, type, sets, reps, duration, "Beginner");
                 }
-            }
+             }
              catch (Exception e) {
             	System.out.println("Invalid selection. Please choose a number between 1 and " + predefinedExercises.length);
                 scan.nextLine(); // Clear invalid input
