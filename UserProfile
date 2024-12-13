@@ -1,4 +1,4 @@
-/*Emma Richardson
+/* Emma Richardson
  * 
  */
 package Project;
@@ -13,8 +13,8 @@ public class UserProfile {
 	private List<Exercise> exercises;
 	private double duration;
 
+	// Constructors
 	public UserProfile(String userName, int userAge, double userWeight) {
-		//Constructors
 		this.userName = userName; //user's name
 		this.userAge = userAge; //user's age
 		this.userWeight = userWeight; //user's weight
@@ -22,7 +22,7 @@ public class UserProfile {
 		this.duration = 0; //time duration of exercise
 	}
 
-	//Setters
+	// Setters
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
@@ -35,7 +35,7 @@ public class UserProfile {
 		this.userWeight = userWeight;
 	}
 
-	//Getters
+	// Getters
 	public String getUserName() {
 		return userName;
 	}
@@ -56,7 +56,7 @@ public class UserProfile {
 		return duration;
 	}
 
-	//Method to add time of exercise to total time duration
+	// Method to add time of exercise to total time duration
 	private void updateDuration() {
 		duration = 0;
 		for (Exercise exercise : exercises) {
@@ -64,19 +64,19 @@ public class UserProfile {
 		}
 	}
 
-	//Add an exercise to arraylist
+	// Add an exercise to arraylist
 	public void addExercise(Exercise exercise) {
 		exercises.add(exercise);
 		updateDuration();
 	}
 
-	//Remove an exercise from list
+	// Remove an exercise from list
 	public void removeExercise(Exercise exercise) {
 		exercises.remove(exercise);
 		updateDuration();
 	}
 
-	//Method to show exercises
+	// Method to show exercises
 	public void displayExercises() {
 		System.out.println(userName + "'s exercises: ");
 		if (!exercises.isEmpty()) {
@@ -89,26 +89,11 @@ public class UserProfile {
 		return;
 	}
 
-	//method to convert to string for display
+	// method to convert to string for display
 	@Override
 	public String toString() {
 		return "UserProfile{" + "userName='" + userName + '\'' + ", weight=" + userWeight + " kg" + ", totalDuration="
 				+ duration + " minutes" + ", number of exercises=" + exercises.size() + '}';
 	}
-	/*
-	 * //Test UserProfile public static void testUserProfile() { UserProfile user =
-	 * new UserProfile("John", 25, 75.5);
-	 * 
-	 * //Create/add some exercises to test Exercise exercise1 = new
-	 * Exercise("Push-ups", "Strength", 3, 10, 15.0, "Intermediate"); Exercise
-	 * exercise2 = new Exercise("Running", "Cardio", 1, 1, 30.0, "Beginner");
-	 * 
-	 * user.addExercise(exercise1); user.addExercise(exercise2);
-	 * 
-	 * //Display user info and their exercise list
-	 * System.out.println(user.toString()); user.displayExercises();
-	 * 
-	 * }
-	 */
 
 }
